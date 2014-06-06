@@ -88,5 +88,14 @@ namespace WebAPIDemo.Web.Models
                 return null;
             }
         }
+
+        public DiarySummaryModel CreateSummary(Diary diary)
+        {
+            return new DiarySummaryModel
+            {
+                DiaryDate = diary.CurrentDate,
+                TotalCalories = diary.Entries.Sum(e => e.Measure.Calories * e.Quantity)
+            };
+        }
     }
 }

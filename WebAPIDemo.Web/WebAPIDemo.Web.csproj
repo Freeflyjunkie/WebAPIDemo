@@ -120,6 +120,9 @@
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib.Formatting.Jsonp">
+      <HintPath>..\packages\WebApiContrib.Formatting.Jsonp.3.0.0.0\lib\net45\WebApiContrib.Formatting.Jsonp.dll</HintPath>
+    </Reference>
     <Reference Include="WebApiContrib.IoC.Ninject">
       <HintPath>..\packages\WebApiContrib.IoC.Ninject.0.9.3.0\lib\net40\WebApiContrib.IoC.Ninject.dll</HintPath>
     </Reference>
@@ -168,7 +171,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Filter\RequireHttpsAttribute.cs" />
+    <Compile Include="Models\DiarySummaryModel.cs" />
     <Compile Include="Controllers\DiariesController.cs" />
+    <Compile Include="Controllers\DiarySummaryController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeasuresController.cs" />

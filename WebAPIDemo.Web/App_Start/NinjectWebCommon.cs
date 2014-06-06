@@ -26,7 +26,10 @@ namespace WebAPIDemo.Web.App_Start
         public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
+            
+            // Enable Ninject for Web API
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+
             bootstrapper.Initialize(CreateKernel);
         }
         

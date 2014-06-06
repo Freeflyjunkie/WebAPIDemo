@@ -42,6 +42,7 @@ namespace WebAPIDemo.Web.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, TheModelFactory.Create(result));
         }
 
+        // Create
         public HttpResponseMessage Post(DateTime diaryId, [FromBody]DiaryEntryModel model)
         {
             //return null;
@@ -102,7 +103,9 @@ namespace WebAPIDemo.Web.Controllers
             }
         }
 
-        [HttpPut]
+        // Update Entire Object
+        [HttpPut]  
+        // Update Partial Object
         [HttpPatch]
         public HttpResponseMessage Patch(DateTime diaryId, int id, [FromBody] DiaryEntryModel model)
         {
