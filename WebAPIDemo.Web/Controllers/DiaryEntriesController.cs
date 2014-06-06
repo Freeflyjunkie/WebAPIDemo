@@ -13,7 +13,7 @@ namespace WebAPIDemo.Web.Controllers
 {
     public class DiaryEntriesController : BaseApiController
     {
-        private ICountingKsIdentityService _identityService;
+        private readonly ICountingKsIdentityService _identityService;
 
         public DiaryEntriesController(ICountingKsRepository repo, ICountingKsIdentityService identityService)
             : base(repo)

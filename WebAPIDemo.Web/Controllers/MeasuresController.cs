@@ -25,17 +25,20 @@ namespace WebAPIDemo.Web.Controllers
             return results;
         }
 
-        public MeasureModel Get(int foodid, int id)
+        public HttpResponseMessage Get(int foodid, int id)
         {
             var results = TheCountingKsRepository.GetMeasure(id);
 
+            if (results == null)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Measure Not Found.");
+
             if (results.Food.Id == foodid)
             {
-                return TheModelFactory.Create(results);
+                return Request.CreateResponse(HttpStatusCode.Found, TheModelFactory.Create(results));
             }
             else
             {
-                return null;
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Measure Not Found For Food.");
             }             
         }
     }
