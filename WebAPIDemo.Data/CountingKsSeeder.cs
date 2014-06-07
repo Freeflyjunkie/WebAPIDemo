@@ -24,27 +24,27 @@ namespace WebAPIDemo.Data
 
     public void Seed()
     {
-#if !(TEST_SEED || FORCE_RECREATE)
-      if (_ctx.Foods.Count() > 0)
-      {
-        return;
-      }
-#endif
+      //  #if !(TEST_SEED || FORCE_RECREATE)
+      //        if (_ctx.Foods.Count() > 0)
+      //        {
+      //          return;
+      //        }
+      //  #endif
 
-#if TEST_SEED || FORCE_RECREATE
-      ExecuteQueries(
-        "DELETE FROM FoodDiaries.DiaryEntry",
-        "DELETE FROM FoodDiaries.Diary",
-        "DELETE FROM Nutrition.Measure",
-        "DELETE FROM Nutrition.Food",
-        "DELETE FROM [Security].[User]"
-        "DELETE FROM [Security].[ApiUser]"
-      );
-#endif
+      //  #if TEST_SEED || FORCE_RECREATE
+      //        ExecuteQueries(
+      //          "DELETE FROM FoodDiaries.DiaryEntry",
+      //          "DELETE FROM FoodDiaries.Diary",
+      //          "DELETE FROM Nutrition.Measure",
+      //          "DELETE FROM Nutrition.Food",
+      //          "DELETE FROM [Security].[User]"
+      //          "DELETE FROM [Security].[ApiUser]"
+      //        );
+      //  #endif
 
-      SeedApiUsers();
-      SeedFoods();
-      SeedDiaries();
+      //SeedApiUsers();
+      //SeedFoods();
+      //SeedDiaries();
 
     }
 
@@ -172,16 +172,13 @@ namespace WebAPIDemo.Data
         throw ex;
       }
     }
-
-
-
+      
     void ExecuteQueries(params string[] sqlStatements)
     {
       foreach (var sql in sqlStatements)
       {
         _ctx.Database.ExecuteSqlCommand(sql);
       }
-
     }
 
     string ToTitleCase(string s)

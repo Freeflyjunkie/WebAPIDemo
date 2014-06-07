@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 
 namespace WebAPIDemo.Web.Services
@@ -9,7 +10,11 @@ namespace WebAPIDemo.Web.Services
     {
         public string CurrentUser
         {
-            get { return "shawnwildermuth"; }
+            get
+            {
+                return Thread.CurrentPrincipal.Identity.Name;
+                //"shawnwildermuth";
+            }
         }
     }
 }

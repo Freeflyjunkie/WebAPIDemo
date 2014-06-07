@@ -15,16 +15,22 @@ namespace WebAPIDemo.Web.Controllers
 {    
     public class FoodsController : BaseApiController
     {
-        private const int PAGE_SIZE = 50;
+        private const int PAGE_SIZE = 5;
 
         public FoodsController(ICountingKsRepository countingKsRepository) : base(countingKsRepository)
         {           
         }
 
         // Using Composer in Fiddler, set the return format of the data
-        // User-Agent: Fiddler
-        // Host: localhost:23042
-        // Accept: text/xml, application/json, text/html 
+        // use base64encode.org for Authorization credential encoding
+
+        //http://localhost:23042/api/nutrition/foods?page=3
+        //User-Agent: Fiddler
+        //Host: localhost:23042
+        //Content-Type: application/json
+        //Authorization: Basic c2hhd253aWxkZXJtdXRoOnBsdXJhbHNpZ2h0
+
+        [CountingKsAuthorization]
         public object Get(bool includeMeasures = true, int page = 0)
         {
             IQueryable<Food> query;

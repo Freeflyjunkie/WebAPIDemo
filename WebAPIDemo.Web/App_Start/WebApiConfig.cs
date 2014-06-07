@@ -50,6 +50,12 @@ namespace WebAPIDemo.Web
              defaults: new { controller = "DiarySummary" }
             );
 
+            config.Routes.MapHttpRoute(
+             name: "Token",
+             routeTemplate: "api/token",
+             defaults: new { controller = "Token" }
+            );
+
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",
             //    routeTemplate: "api/{controller}/{id}",
