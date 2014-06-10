@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using Newtonsoft.Json.Serialization;
 using WebApiContrib.Formatting.Jsonp;
 using WebAPIDemo.Web.Filter;
+using WebAPIDemo.Web.Services;
 
 namespace WebAPIDemo.Web
 {
@@ -31,6 +33,12 @@ namespace WebAPIDemo.Web
               routeTemplate: "api/nutrition/foods/{foodid}/measures/{id}",
               defaults: new { controller = "Measures", id = RouteParameter.Optional }
             );
+
+            //config.Routes.MapHttpRoute(
+            //  name: "MeasuresV2",
+            //  routeTemplate: "api/v2/nutrition/foods/{foodid}/measures/{id}",
+            //  defaults: new { controller = "MeasuresV2", id = RouteParameter.Optional }
+            //);
 
             config.Routes.MapHttpRoute(
              name: "Diaries",
@@ -90,6 +98,9 @@ namespace WebAPIDemo.Web
             // CORS SUPPORT = CROSS ORIGIN RESOURCE SHARING
             // ONLY AVAILABLE IN Web API 2
             
+            // Replace Controller Configuration
+            config.Services.Replace(typeof (IHttpControllerSelector), new CountingKsControllerSelector(config));
+
         }
     }
 }

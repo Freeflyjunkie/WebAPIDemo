@@ -12,8 +12,8 @@ namespace WebAPIDemo.Web.Services
         {
             get
             {
-                return Thread.CurrentPrincipal.Identity.Name;
-                //"shawnwildermuth";
+                //return Thread.CurrentPrincipal.Identity.Name;
+                return "shawnwildermuth";
             }
         }
     }

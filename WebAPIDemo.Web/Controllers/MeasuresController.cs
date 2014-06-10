@@ -11,8 +11,9 @@ using WebAPIDemo.Web.Models;
 namespace WebAPIDemo.Web.Controllers
 {
     public class MeasuresController : BaseApiController
-    {       
-        public MeasuresController(ICountingKsRepository countingKsRepository) : base(countingKsRepository)
+    {
+        public MeasuresController(ICountingKsRepository countingKsRepository)
+            : base(countingKsRepository)
         {            
         }
 

@@ -30,7 +30,7 @@ namespace WebAPIDemo.Web.Controllers
         //Content-Type: application/json
         //Authorization: Basic c2hhd253aWxkZXJtdXRoOnBsdXJhbHNpZ2h0
 
-        [CountingKsAuthorization]
+        //[CountingKsAuthorization]
         public object Get(bool includeMeasures = true, int page = 0)
         {
             IQueryable<Food> query;
