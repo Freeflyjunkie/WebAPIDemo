@@ -5,6 +5,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
+using CacheCow.Server;
 using Newtonsoft.Json.Serialization;
 using WebApiContrib.Formatting.Jsonp;
 using WebAPIDemo.Web.Filter;
@@ -100,6 +101,11 @@ namespace WebAPIDemo.Web
             
             // Replace Controller Configuration
             config.Services.Replace(typeof (IHttpControllerSelector), new CountingKsControllerSelector(config));
+
+            // Configure Caching/Etag Support
+            var cacheHandler = new CachingHandler(config);
+            //cacheHandler.AddLastModifiedHeader = false;
+            config.MessageHandlers.Add(cacheHandler);
 
         }
     }
